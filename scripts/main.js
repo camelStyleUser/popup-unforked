@@ -80,10 +80,18 @@ again.cont.add(" ").row();
 again.cont.button("going down the rabbithole again",()=>{
     again.hide();
     let count=0;
+    let forgottenlimit=200;
     let limit=50+Math.floor(Math.random()*20);
     let dialog=new BaseDialog("a mistake");
     dialog.cont.add("mistaken again").row();
-    dialog.cont.button("soon",()=>{dialog.hide();dialog.show();count+=1;if(count==limit){dialog.cont.button("forgiven",()=>{Core.settings.put("wentdowntherabbithole",false);Core.settings.put("wasforgiven",true);Core.settings.forceSave();dialog.hide();});}
+    dialog.cont.button("soon",()=>{dialog.hide();dialog.show();count+=1;if(count==limit){dialog.cont.button("forgiven",()=>{Core.settings.put("wentdowntherabbithole",false);Core.settings.put("wasforgiven",true);Core.settings.forceSave();dialog.hide();});}if(count==forgottenlimit&&Core.settings.get("wasforgiven",false)){
+        dialog.cont.button("forgotten",()=>{
+            Core.settings.put("wentdowntherabbithole",false);
+            Core.settings.put("wasforgiven",false);
+            Core.settings.forceSave();
+            dialog.hide();
+        });
+    }
                                   }).size(100,50);
     dialog.show();
 });
