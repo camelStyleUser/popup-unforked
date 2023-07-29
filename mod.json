@@ -1,0 +1,9 @@
+{
+  "name": "popup",
+  "displayName": "popup",
+  "author": "[REDACTED]",
+  "description": "adds 65-85 popups on startup",
+  "version": "1.0",
+  "minGameVersion": "144.3",
+  "hidden": "true"
+}

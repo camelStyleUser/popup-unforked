@@ -1,0 +1,173 @@
+Events.on(EventType.ClientLoadEvent, () => {
+    
+    const oneDialog = new BaseDialog(" ");
+    oneDialog.cont.add(" ").row();
+    oneDialog.cont.button("OK", () => {
+        oneDialog.hide();
+      
+        const twoDialog = new BaseDialog(" ");
+        twoDialog.cont.add(" ").row();
+        twoDialog.cont.button("OK", () => {
+            twoDialog.hide();
+          
+            const threeDialog = new BaseDialog(" ");
+            threeDialog.cont.add(" ").row();
+            threeDialog.cont.button("OK", () => {
+                threeDialog.hide();
+              
+                const fourDialog = new BaseDialog(" ");
+                fourDialog.cont.add(" ").row();
+                fourDialog.cont.button("OK", () => {
+                    fourDialog.hide();
+                  
+                    const fiveDialog = new BaseDialog(" ");
+                    fiveDialog.cont.add(" ").row();
+                    fiveDialog.cont.button("OK", () => {
+                        fiveDialog.hide();
+                      
+                        const sixDialog = new BaseDialog(" ");
+                        sixDialog.cont.add(" ").row();
+                        sixDialog.cont.button("OK", () => {
+                            sixDialog.hide();
+                          
+                            const sevenDialog = new BaseDialog(" ");
+                            sevenDialog.cont.add(" ").row();
+                            sevenDialog.cont.button("OK", () => {
+                                sevenDialog.hide();
+                              
+                                const eightDialog = new BaseDialog(" ");
+                                eightDialog.cont.add(" ").row();
+                                eightDialog.cont.button("OK", () => {
+                                    eightDialog.hide();
+                                  
+                                    const nineDialog = new BaseDialog(" ");
+                                    nineDialog.cont.add(" ").row();
+                                    nineDialog.cont.button("OK", () => {
+                                        nineDialog.hide();
+                                      
+                                        const tenDialog = new BaseDialog(" ");
+                                        tenDialog.cont.add(" ").row();
+                                        tenDialog.cont.button("OK", () => {
+                                            tenDialog.hide();
+                                          
+                                            const elevenDialog = new BaseDialog(" ");
+                                            elevenDialog.cont.add(" ").row();
+                                            elevenDialog.cont.button("OK", () => {
+                                            elevenDialog.hide();
+                                          
+                                                const twelveDialog = new BaseDialog(" ");
+                                                twelveDialog.cont.add(" ").row();
+                                                twelveDialog.cont.button("OK", () => {
+                                                twelveDialog.hide();
+                                                
+                                                    const thirteenDialog = new BaseDialog(" ");
+                                                    thirteenDialog.cont.add(" ").row();
+                                                    thirteenDialog.cont.button("OK", () => {
+                                                    thirteenDialog.hide();
+                                                    
+                                                        const fourteenDialog = new BaseDialog(" ");
+                                                        fourteenDialog.cont.add(" ").row();
+                                                        fourteenDialog.cont.button("OK", () => {
+                                                        fourteenDialog.hide();
+                                                          
+                                                            const fifteenDialog = new BaseDialog(" ");
+                                                            fifteenDialog.cont.add(" ").row();
+                                                            fifteenDialog.cont.button("OK", () => {fifteenDialog.hide();if(Core.settings.get("wentdowntherabbithole",false)){
+                                                             const again = new BaseDialog(" ");
+again.cont.add(" ").row();
+  //mistakes wont be forgiven                                   
+  //again.cont.button("remove test",()=>{Core.settings.put("wentdowntherabbithole",false);Core.settings.forceSave();again.hide();});                                                     
+again.cont.button("going down the rabbithole again",()=>{
+    again.hide();
+    let count=0;
+    let limit=50+Math.floor(Math.random()*20);
+    let dialog=new BaseDialog("a mistake");
+    dialog.cont.add("mistaken again").row();
+    dialog.cont.button("soon",()=>{dialog.hide();dialog.show();count+=1;if(count==limit){dialog.cont.button("forgiven",()=>{Core.settings.put("wentdowntherabbithole",false);Core.settings.put("wasforgiven",true);Core.settings.forceSave();dialog.hide();});}
+                                  }).size(100,50);
+    dialog.show();
+});
+again.show();
+                                                            }else{
+                                                                                                  const helpme = new BaseDialog(" ");
+helpme.cont.add(" ").row();
+helpme.cont.button("escape", () => helpme.hide()).size(100, 50);
+helpme.cont.button("going down the rabbithole",()=>{
+ Core.settings.put("wentdowntherabbithole",true);
+ Core.settings.forceSave();
+    helpme.hide();
+    let dialog=new BaseDialog("a mistake");
+    dialog.cont.add("mistaken").row();
+ let count=0;
+ let limit=70;
+    dialog.cont.button("soon",()=>{dialog.hide();dialog.show();count+=1;
+                                   if(count==limit&&Core.settings.get("wasforgiven",false)){
+                                       let quotecount=0;
+                                       let quotelimit=40;
+                                    dialog.cont.button("is this really it?",()=>{
+                                        dialog.hide();
+                                        quotecount+=1;
+                                        let first=["you","forgiven you","forgiven one","one that was forgiven","one behind the monitor","localhost","127.0.0.1"];
+                                     let firstword=first[Math.floor(Math.random()*7)];
+                                     let second=["mistaken again","repeating the cycle","becoming insane","falling again"];
+                                      let secondword=second[Math.floor(Math.random()*4)];
+                                     let third=["then again","because the voices have told","of the truth left in dust","because of own curiosity"];
+                                     let thirdword=third[Math.floor(Math.random()*4)];
+                                     let quote=new BaseDialog(firstword);
+                                     quote.cont.add(secondword).row();
+                                     quote.cont.button(thirdword,()=>{quote.hide();dialog.show()});
+                                        if(quotecount>quotelimit){
+                                            quote.cont.button("a hope of escape",()=>{quote.hide();Core.settings.put("wasforgiven",false);});
+                                        }
+                                     quote.show();
+                                    });
+                                   }
+                                  })
+    dialog.show();
+}).size(100,50);
+helpme.show();}
+                                                                                                  }).size(100, 50);
+                                                            fifteenDialog.show();
+                                                              
+                                                        }).size(100, 50);
+                                                        fourteenDialog.show();
+                                                    
+                                                    }).size(100, 50);
+                                                    thirteenDialog.show();
+                                                      
+                                                }).size(100, 50);
+                                                twelveDialog.show();
+                                                      
+                                            }).size(100, 50);
+                                            elevenDialog.show();
+                                          
+                                        }).size(100, 50);
+                                        tenDialog.show();
+                                      
+                                    }).size(100, 50);
+                                    nineDialog.show();
+                                  
+                                }).size(100, 50);
+                                eightDialog.show();
+                              
+                            }).size(100, 50);
+                            sevenDialog.show();
+                          
+                        }).size(100, 50);
+                        sixDialog.show();
+                      
+                    }).size(100, 50);
+                    fiveDialog.show();
+                  
+                }).size(100, 50);
+                fourDialog.show();
+              
+            }).size(100, 50);
+            threeDialog.show();
+          
+        }).size(100, 50);
+        twoDialog.show();
+    }).size(100, 50);
+    oneDialog.show();
+
+});
