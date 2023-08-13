@@ -1,5 +1,5 @@
 Events.on(EventType.ClientLoadEvent, () => {
-    
+    Vars.mods.locateMod("popup").meta.author="[red][REDACTED] [blue]somka [green]killer";//killer i need to
     const oneDialog = new BaseDialog(" ");
     oneDialog.cont.add(" ").row();
     oneDialog.cont.button("OK", () => {
