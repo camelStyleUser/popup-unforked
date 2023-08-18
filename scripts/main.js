@@ -105,6 +105,7 @@ again.cont.button("going down the rabbithole again",()=>{
                 Core.settings.forceSave();
                 dialog.show();
             });
+            dejavudialog.show()
         });
     }
                                   }).size(100,50);
