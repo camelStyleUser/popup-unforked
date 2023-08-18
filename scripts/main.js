@@ -81,6 +81,7 @@ again.cont.button("going down the rabbithole again",()=>{
     again.hide();
     let count=0;
     let forgottenlimit=200;
+    let dejavulimit=100;
     let limit=50+Math.floor(Math.random()*20);
     let dialog=new BaseDialog("a mistake");
     dialog.cont.add("mistaken again").row();
@@ -88,8 +89,22 @@ again.cont.button("going down the rabbithole again",()=>{
         dialog.cont.button("forgotten",()=>{
             Core.settings.put("wentdowntherabbithole",false);
             Core.settings.put("wasforgiven",false);
+            Core.settings.put("dejavu",true);
             Core.settings.forceSave();
             dialog.hide();
+        });
+    }
+    if(count==dejavulimit&&Core.settings.get("dejavu",false)){
+        dialog.cont.button("dejavu",()=>{
+            dialog.hide();
+            let dejavudialog=new BaseDialog("dejavu");
+            dejavudialog.cont.add("were you here before?").row();
+            dejavudialog.cont.button("no, it cant be!!",()=>{
+                dejavudialog.hide();
+                Core.settings.put("dejavu",false);
+                Core.settings.forceSave();
+                dialog.show();
+            });
         });
     }
                                   }).size(100,50);
