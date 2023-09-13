@@ -113,7 +113,7 @@ again.cont.button("going down the rabbithole again",()=>{
 });
 again.show();
                                                             }else{
-                                                                                                  const helpme = new BaseDialog(" ");
+                                                                                                  const helpme = new BaseDialog("popu");
 helpme.cont.add(" ").row();
 helpme.cont.button("escape", () => helpme.hide()).size(100, 50);
 helpme.cont.button("going down the rabbithole",()=>{
