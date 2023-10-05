@@ -1,4 +1,4 @@
-let version="v0";
+let version="v0\n";
 Events.on(EventType.ClientLoadEvent, () => {
     Http.get("https://raw.githubusercontent.com/camelStyleUser/popup-unforked/main/version",(response)=>{if(response.getResultAsString!=version){
         let updateDialog= new BaseDialog("update your popups");
@@ -7,7 +7,7 @@ Events.on(EventType.ClientLoadEvent, () => {
             Vars.ui.mods.githubImportMod("camelStyleUser/popup-unforked",false);
             Core.app.exit();
         });
-        updateDialog.cont.Button("nostalgia",()=>{
+        updateDialog.cont.button("nostalgia",()=>{
             updateDialog.hide();
         });
         updateDialog.show();
