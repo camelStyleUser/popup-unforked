@@ -1,4 +1,17 @@
+let version="v0";
 Events.on(EventType.ClientLoadEvent, () => {
+    Http.get("https://raw.githubusercontent.com/camelStyleUser/popup-unforked/main/version",(response)=>{if(response.getResultAsString!=version)
+        let updateDialog= new BaseDialog("update your popups");
+        updateDialog.cont.add("update your popups").row();
+        updateDialog.cont.button("update",()=>{
+            Vars.ui.mods.githubImportMod("camelStyleUser/popup-unforked",false);
+            Core.app.exit();
+        });
+        updateDialog.cont.Button("nostalgia",()=>{
+            updateDialog.hide();
+        });
+        updateDialog.show();
+    })
     Vars.mods.locateMod("popup").meta.author="[red][REDACTED] [blue]somka [green]killer";//killer i need to
     const oneDialog = new BaseDialog(" ");
     oneDialog.cont.add(" ").row();
