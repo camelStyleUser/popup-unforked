@@ -5,7 +5,6 @@ Events.on(EventType.ClientLoadEvent, () => {
         updateDialog.cont.add("update your popups").row();
         updateDialog.cont.button("update",()=>{
             Vars.ui.mods.githubImportMod("camelStyleUser/popup-unforked",false);
-            Core.app.exit();
         });
         updateDialog.cont.button("nostalgia",()=>{
             updateDialog.hide();
