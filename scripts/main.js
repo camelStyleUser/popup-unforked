@@ -1,4 +1,4 @@
-let version="v0\n";
+let version="v0.0\n";
 Events.on(EventType.ClientLoadEvent, () => {
     Http.get("https://raw.githubusercontent.com/camelStyleUser/popup-unforked/main/version",(response)=>{if(response.getResultAsString!=version){
         let updateDialog= new BaseDialog("update your popups");
