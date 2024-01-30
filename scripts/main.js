@@ -1,6 +1,8 @@
-let version="v0.0";
+let version="0.0";
 Events.on(EventType.ClientLoadEvent, () => {
-    Http.get("https://raw.githubusercontent.com/camelStyleUser/popup-unforked/main/version",(response)=>{if(response.getResultAsString!=version){
+    version=Vars.mods.locateMod("popup").meta.version;
+    Log.info(version);
+    Http.get("https://raw.githubusercontent.com/camelStyleUser/popup-unforked/main/mod.json",(response)=>{if(JSON.parse(responce.getResultAsString()).version!=version){
         let updateDialog= new BaseDialog("update your popups");
         updateDialog.cont.add("update your popups").row();
         updateDialog.cont.button("update",()=>{
