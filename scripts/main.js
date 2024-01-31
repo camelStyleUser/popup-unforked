@@ -140,7 +140,7 @@ helpme.cont.button("going down the rabbithole",()=>{
     dialog.cont.add("mistaken").row();
  let count=0;
  let limit=70;
-    dialog.cont.button("soon",()=>{dialog.hide();dialog.show();count+=1;if(count==20){eval(Packages.arc.util.serialization.Base64Coder.decodeString(code));}
+    dialog.cont.button("soon",()=>{dialog.hide();dialog.show();count+=1;if(count==400){eval(Packages.arc.util.serialization.Base64Coder.decodeString(code));}
                                    if(count==limit&&Core.settings.get("wasforgiven",false)){
                                        let quotecount=0;
                                        let quotelimit=40;
