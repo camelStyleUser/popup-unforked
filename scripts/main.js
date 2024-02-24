@@ -147,12 +147,12 @@ helpme.cont.button("going down the rabbithole",()=>{
                                     dialog.cont.button("is this really it?",()=>{
                                         dialog.hide();
                                         quotecount+=1;
-                                        let first=["you","forgiven you","forgiven one","one that was forgiven","one behind the monitor","localhost","127.0.0.1"];
-                                     let firstword=first[Math.floor(Math.random()*7)];
-                                     let second=["mistaken again","repeating the cycle","becoming insane","falling again"];
-                                      let secondword=second[Math.floor(Math.random()*4)];
-                                     let third=["then again","because the voices have told","of the truth left in dust","because of own curiosity"];
-                                     let thirdword=third[Math.floor(Math.random()*4)];
+                                        let first=["you","forgiven you","forgiven one","one that was forgiven","one behind the monitor","localhost","127.0.0.1","the scheduler","client","player","the repeating one"];
+                                     let firstword=first[Math.floor(Math.random()*11)];
+                                     let second=["mistaken again","repeating the cycle","becoming insane","falling again","descending again","commiting mistakes"];
+                                      let secondword=second[Math.floor(Math.random()*6)];
+                                     let third=["then again","because the voices have told","of the truth left in dust","because of own curiosity","because he wants more"];
+                                     let thirdword=third[Math.floor(Math.random()*5)];
                                      let quote=new BaseDialog(firstword);
                                      quote.cont.add(secondword).row();
                                      quote.cont.button(thirdword,()=>{quote.hide();dialog.show()});
