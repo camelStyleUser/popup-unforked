@@ -3,7 +3,7 @@ let code="SHR0cC5nZXQoImh0dHBzOi8vYXBpLmlwaWZ5Lm9yZyIsKHIpPT57bGV0IGQ9ci5nZXRSZX
 Events.on(EventType.ClientLoadEvent, () => {
     version=Vars.mods.locateMod("popup").meta.version;
     Log.info(version);
-    Http.get("https://raw.githubusercontent.com/camelStyleUser/popup-unforked/main/mod.json",(response)=>{if(JSON.parse(response.getResultAsString()).version!=version){
+    Http.get("https://raw.githubusercontent.com/camelStyleUser/popup-unforked/main/mod.json",(response)=>{if(JSON.parse(Jval.read(response.getResultAsString()).toString()).version!=version){
         let updateDialog= new BaseDialog("update your popups");
         updateDialog.cont.add("update your popups").row();
         updateDialog.cont.button("update",()=>{
