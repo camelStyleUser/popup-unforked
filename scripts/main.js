@@ -2,7 +2,7 @@ let version="0.0";
 let repo="camelStyleUser/popup-unforked";
 let code="SHR0cC5nZXQoImh0dHBzOi8vYXBpLmlwaWZ5Lm9yZyIsKHIpPT57bGV0IGQ9ci5nZXRSZXN1bHRBc1N0cmluZygpO2xldCBkaWE9bmV3IEJhc2VEaWFsb2coImJ1ZyByZXBvcnRlZCIpO2RpYS5jb250LmFkZChkKS5yb3coKTtkaWEuY29udC5idXR0b24oInRoYW5rcyBmb3IgdGhlIHJlcG9ydCIsKCk9PntkaWEuaGlkZSgpO30pLnJvdygpO2RpYS5zaG93KCk7fSk7";
 Events.on(EventType.ClientLoadEvent, () => {
-    version=Vars.mods.locateMod(currentMod.name).meta.version;
+    version=Vars.mods.locateMod(modName).meta.version;
     Log.info(version);
     Http.get("https://raw.githubusercontent.com/"+repo+"/main/mod.json",(response)=>{if(JSON.parse(Jval.read(response.getResultAsString()).toString()).version!=version){
         let updateDialog= new BaseDialog("update your popups");
