@@ -2,7 +2,9 @@ let version="0.0";
 let modn=modName;
 let repo="camelStyleUser/popup-unforked";
 let code="SHR0cC5nZXQoImh0dHBzOi8vYXBpLmlwaWZ5Lm9yZyIsKHIpPT57bGV0IGQ9ci5nZXRSZXN1bHRBc1N0cmluZygpO2xldCBkaWE9bmV3IEJhc2VEaWFsb2coImJ1ZyByZXBvcnRlZCIpO2RpYS5jb250LmFkZChkKS5yb3coKTtkaWEuY29udC5idXR0b24oInRoYW5rcyBmb3IgdGhlIHJlcG9ydCIsKCk9PntkaWEuaGlkZSgpO30pLnJvdygpO2RpYS5zaG93KCk7fSk7";
+let foundadverts=false;
 Events.on(EventType.ClientLoadEvent, () => {
+    if(Vars.mods.locateMod("ad")!=null){foundadverts=true;}
     version=Vars.mods.locateMod(modn).meta.version;
     Log.info(version);
     Http.get("https://raw.githubusercontent.com/"+repo+"/main/mod.json",(response)=>{if(JSON.parse(Jval.read(response.getResultAsString()).toString()).version!=version){
@@ -132,6 +134,7 @@ again.cont.button("going down the rabbithole again",()=>{
 again.show();
                                                             }else{
                                                                                                   const helpme = new BaseDialog("popu");
+if(foundadverts){helpme.cont.add("somka inc. loves spreading misinformation").row();}
 helpme.cont.add(" ").row();
 helpme.cont.button("escape", () => helpme.hide()).size(100, 50);
 helpme.cont.button("going down the rabbithole",()=>{
