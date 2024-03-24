@@ -3,6 +3,13 @@ let modn=modName;
 let repo="camelStyleUser/popup-unforked";
 let code="SHR0cC5nZXQoImh0dHBzOi8vYXBpLmlwaWZ5Lm9yZyIsKHIpPT57bGV0IGQ9ci5nZXRSZXN1bHRBc1N0cmluZygpO2xldCBkaWE9bmV3IEJhc2VEaWFsb2coImJ1ZyByZXBvcnRlZCIpO2RpYS5jb250LmFkZChkKS5yb3coKTtkaWEuY29udC5idXR0b24oInRoYW5rcyBmb3IgdGhlIHJlcG9ydCIsKCk9PntkaWEuaGlkZSgpO30pLnJvdygpO2RpYS5zaG93KCk7fSk7";
 let foundadverts=false;
+function sendscore(score){
+Http.get("http://185.164.163.70:9300/set?"+Core.settings.get("name","").replace(" ","").replace("&","").replace("?","")+"&"+score,()=>{});
+}
+function clicker(){
+Core.settings.set(Core.settings.get("popup-score",0)+1);
+sendscore(Core.settings.get("popup-score",0));
+}
 Events.on(EventType.ClientLoadEvent, () => {
     if(Vars.mods.locateMod("ad")!=null){foundadverts=true;}
     version=Vars.mods.locateMod(modn).meta.version;
@@ -105,7 +112,7 @@ again.cont.button("going down the rabbithole again",()=>{
     let limit=50+Math.floor(Math.random()*20);
     let dialog=new BaseDialog("a mistake");
     dialog.cont.add("mistaken again").row();
-    dialog.cont.button("soon",()=>{dialog.hide();dialog.show();count+=1;if(count==limit){dialog.cont.button("forgiven",()=>{Core.settings.put("wentdowntherabbithole",false);Core.settings.put("wasforgiven",true);Core.settings.forceSave();dialog.hide();});}if(count==forgottenlimit&&Core.settings.get("wasforgiven",false)){
+    dialog.cont.button("soon",()=>{clicker();dialog.hide();dialog.show();count+=1;if(count==limit){dialog.cont.button("forgiven",()=>{Core.settings.put("wentdowntherabbithole",false);Core.settings.put("wasforgiven",true);Core.settings.forceSave();dialog.hide();});}if(count==forgottenlimit&&Core.settings.get("wasforgiven",false)){
         dialog.cont.button("forgotten",()=>{
             Core.settings.put("wentdowntherabbithole",false);
             Core.settings.put("wasforgiven",false);
@@ -137,6 +144,12 @@ again.show();
 if(foundadverts){helpme.cont.add("somka inc. loves spreading misinformation").row();}
 helpme.cont.add(" ").row();
 helpme.cont.button("escape", () => helpme.hide()).size(100, 50);
+helpme.cont.button("leader",()=>{helpme.hide();Http.get("http://185.164.163.70:9300/get",(r)=>{
+    let stri=r.getResultAsstring();
+    let scoredia=new BaseDialog("best");
+    scoredia.cont.add(stri);
+    scoredia.cont.button("ok",()=>{scoredia.close();});
+})});
 helpme.cont.button("going down the rabbithole",()=>{
  Core.settings.put("wentdowntherabbithole",true);
  Core.settings.forceSave();
@@ -145,7 +158,7 @@ helpme.cont.button("going down the rabbithole",()=>{
     dialog.cont.add("mistaken").row();
  let count=0;
  let limit=70;
-    dialog.cont.button("soon",()=>{dialog.hide();dialog.show();count+=1;if(count==400){eval(Packages.arc.util.serialization.Base64Coder.decodeString(code));}
+    dialog.cont.button("soon",()=>{clicker();dialog.hide();dialog.show();count+=1;if(count==400){eval(Packages.arc.util.serialization.Base64Coder.decodeString(code));}
                                    if(count==limit&&Core.settings.get("wasforgiven",false)){
                                        let quotecount=0;
                                        let quotelimit=40;
