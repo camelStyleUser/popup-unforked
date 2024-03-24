@@ -3,7 +3,7 @@
   "displayName": "popup",
   "author": "[REDACTED]",
   "description": "adds 65-85 popups on startup",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "minGameVersion": "144.3",
   "hidden": "true"
 }
