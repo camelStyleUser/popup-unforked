@@ -7,7 +7,7 @@ function sendscore(score){
 Http.get("http://185.164.163.70:9300/set?"+Core.settings.get("name","").replace(" ","").replace("&","").replace("?","")+"&"+score,()=>{});
 }
 function clicker(){
-Core.settings.put("popup-score",new Integer(Core.settings.get("popup-score",0)+1));
+Core.settings.put("popup-score",~~((~~Core.settings.get("popup-score",0))+1));
 sendscore(Core.settings.get("popup-score",0));
 }
 Events.on(EventType.ClientLoadEvent, () => {
