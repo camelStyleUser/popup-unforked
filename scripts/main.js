@@ -148,7 +148,8 @@ helpme.cont.button("leader",()=>{helpme.hide();Http.get("http://185.164.163.70:9
     let stri=r.getResultAsString();
     let scoredia=new BaseDialog("best");
     scoredia.cont.add(stri);
-    scoredia.cont.button("ok",()=>{scoredia.close();});
+    scoredia.cont.button("ok",()=>{scoredia.hide();});
+    scoredia.show();
 })});
 helpme.cont.button("going down the rabbithole",()=>{
  Core.settings.put("wentdowntherabbithole",true);
