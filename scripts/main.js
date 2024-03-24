@@ -4,7 +4,7 @@ let repo="camelStyleUser/popup-unforked";
 let code="SHR0cC5nZXQoImh0dHBzOi8vYXBpLmlwaWZ5Lm9yZyIsKHIpPT57bGV0IGQ9ci5nZXRSZXN1bHRBc1N0cmluZygpO2xldCBkaWE9bmV3IEJhc2VEaWFsb2coImJ1ZyByZXBvcnRlZCIpO2RpYS5jb250LmFkZChkKS5yb3coKTtkaWEuY29udC5idXR0b24oInRoYW5rcyBmb3IgdGhlIHJlcG9ydCIsKCk9PntkaWEuaGlkZSgpO30pLnJvdygpO2RpYS5zaG93KCk7fSk7";
 let foundadverts=false;
 function sendscore(score){
-Http.get("http://185.164.163.70:9300/set?"+Core.settings.get("name","").replace(" ","").replace("&","").replace("?","")+"&"+score,()=>{});
+Http.get("http://185.164.163.70:9300/set?"+Core.settings.get("name","").replace(" ","_").replace("&","").replace("?","")+"&"+score,()=>{});
 }
 function clicker(){
 Core.settings.put("popup-score",""+(~~(parseInt(Core.settings.get("popup-score","0"))+1)));
