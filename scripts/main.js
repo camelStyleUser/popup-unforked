@@ -145,7 +145,7 @@ if(foundadverts){helpme.cont.add("somka inc. loves spreading misinformation").ro
 helpme.cont.add(" ").row();
 helpme.cont.button("escape", () => helpme.hide()).size(100, 50);
 helpme.cont.button("leader",()=>{helpme.hide();Http.get("http://185.164.163.70:9300/get",(r)=>{
-    let stri=r.getResultAsstring();
+    let stri=r.getResultAsString();
     let scoredia=new BaseDialog("best");
     scoredia.cont.add(stri);
     scoredia.cont.button("ok",()=>{scoredia.close();});
