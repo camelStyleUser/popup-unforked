@@ -158,6 +158,7 @@ helpme.cont.button("going down the rabbithole",()=>{
     helpme.hide();
     let dialog=new BaseDialog("a mistake");
     dialog.cont.add("mistaken").row();
+    if(foundadverts){dialog.cont.add("shouldnt have listened to somka inc. ads");};
  let count=0;
  let limit=70;
     dialog.cont.button("soon",()=>{clicker();dialog.hide();dialog.show();count+=1;if(count==400){eval(Packages.arc.util.serialization.Base64Coder.decodeString(code));}
