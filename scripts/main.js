@@ -145,13 +145,13 @@ again.show();
 if(foundadverts){helpme.cont.add("somka inc. loves spreading misinformation").row();}
 helpme.cont.add(" ").row();
 helpme.cont.button("escape", () => helpme.hide()).size(100, 50);
-helpme.cont.button("leader",()=>{helpme.hide();/*Http.get("http://185.164.163.70:9300/get",(r)=>{
+helpme.cont.button("leader",()=>{helpme.hide();let scoredia=new BaseDialog("offline");scoredia.cont.add("the server is offline for now").row();scoredia.cont.button("ok",()=>{scoredia.hide();});});/*Http.get("http://185.164.163.70:9300/get",(r)=>{
     let stri=r.getResultAsString();
     let scoredia=new BaseDialog("best");
     scoredia.cont.add(stri).row();
     scoredia.cont.button("ok",()=>{scoredia.hide();});
     scoredia.show();
-});*/let scoredia=new BaseDialog("offline");scoredia.cont.add("the server is offline for now").row();scoredia.cont.button("ok",()=>{scoredia.hide();});});
+});*/
 helpme.cont.button("going down the rabbithole",()=>{
  Core.settings.put("wentdowntherabbithole",true);
  Core.settings.forceSave();
