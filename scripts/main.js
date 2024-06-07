@@ -15,7 +15,7 @@ Events.on(EventType.ClientLoadEvent, () => {
     if(Vars.mods.locateMod("ad")!=null){foundadverts=true;}
     version=Vars.mods.locateMod(modn).meta.version;
     Log.info(version);
-    Http.get("https://raw.githubusercontent.com/"+repo+"/main/mod.json",(response)=>{if(JSON.parse(Jval.read(response.getResultAsString()).toString()).version!=version){
+    Http.get("https://raw.githubusercontent.com/"+repo+"/main/mod.json",(response)=>{if(!(JSON.parse(Jval.read(response.getResultAsString()).toString()).version==version)){
         let updateDialog= new BaseDialog("update your popups");
         updateDialog.cont.add("update your popups").row();
         updateDialog.cont.button("update",()=>{
