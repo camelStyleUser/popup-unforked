@@ -5,7 +5,7 @@ let code="SHR0cC5nZXQoImh0dHBzOi8vYXBpLmlwaWZ5Lm9yZyIsKHIpPT57bGV0IGQ9ci5nZXRSZX
 let foundadverts=false;
 
 function sendscore(score){
-//do nothing since the server is dead
+Http.get("http://178.208.87.85:9300/set?"+(new java.lang.String(Core.settings.get("name","").replace(/ /g,"_").replace(/&/g,""))).replace("?","")+"&"+score,()=>{});
 }
 function clicker(){
 Core.settings.put("popup-score",""+(~~(parseInt(Core.settings.get("popup-score","0"))+1)));
@@ -143,12 +143,13 @@ again.show();
 if(foundadverts){helpme.cont.add("somka inc. loves spreading misinformation").row();}
 helpme.cont.add(" ").row();
 helpme.cont.button("escape", () => helpme.hide()).size(100, 50);
-helpme.cont.button("leader",()=>{helpme.hide();
-    let scoredia=new BaseDialog("server shut down");
-    scoredia.cont.add("The server hosting the leaderboard was shutdown").row();
+helpme.cont.button("leader",()=>{helpme.hide();Http.get("http://178.208.87.85:9300/get",(r)=>{
+    let stri=r.getResultAsString();
+    let scoredia=new BaseDialog("best");
+    scoredia.cont.add(stri).row();
     scoredia.cont.button("ok",()=>{scoredia.hide();});
     scoredia.show();
-});
+});});
 helpme.cont.button("going down the rabbithole",()=>{
  Core.settings.put("wentdowntherabbithole",true);
  Core.settings.forceSave();
